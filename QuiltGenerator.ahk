@@ -5,17 +5,18 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 CoordMode, Mouse, Screen
 
-QuiltComplexity :=		25			; special number, needs camera set up special.
-topleftx :=				635
-toplefty :=				400
-botrightx :=			1300
-botrighty :=			800
-spacing :=				10
+MsgBox, "For now, open paint editor. esc to exit or wait to completion."
 
-
-
-
-
+ToolTip, click somewhere
+KeyWait, LButton, D
+MouseGetPos, topleftx, toplefty
+KeyWait, LButton, U
+ToolTip,  click somewhere else
+KeyWait, LButton, D
+MouseGetPos, botrightx, botrighty
+KeyWait, LButton, U
+ToolTip
+MsgBox, X1,Y1: %topleftx%,%toplefty% `nX2,Y2: %botrightx%,%botrighty% `nWill paint quilt %QuiltComplexity% times. Estimated time is %QuiltComplexity%*patchworks*2.5 seconds.
 
 RightClickArray(X1,Y1,X2,Y2,S) {
 	; range 1 is top left, range 2 is bottom right.
@@ -38,20 +39,8 @@ RightClickArray(X1,Y1,X2,Y2,S) {
 	}
 }
 
-
-
-MsgBox, "For now, open paint editor. esc to exit or wait to completion."
-
-ToolTip, click somewhere
-KeyWait, LButton, D
-MouseGetPos, topleftx, toplefty
-KeyWait, LButton, U
-ToolTip,  click somewhere else
-KeyWait, LButton, D
-MouseGetPos, botrightx, botrighty
-KeyWait, LButton, U
-ToolTip
-MsgBox, X1,Y1: %topleftx%,%toplefty% `nX2,Y2: %botrightx%,%botrighty% `nWill paint quilt %QuiltComplexity% times.
+QuiltComplexity :=		25
+spacing :=				10
 
 Loop %QuiltComplexity%
 {
