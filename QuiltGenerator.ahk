@@ -26,12 +26,12 @@ RightClickArray(X1,Y1,X2,Y2,S) {
 	{
 		if(A_Index>YF)
 			break
-		Yloop:= A_Index 
+		Yloop:= A_Index - 1
 		Loop
 		{
 			if(A_Index>XF)
 				break
-			Xlast := X1+(S*A_Index)
+			Xlast := X1+(S*(A_Index-1))
 			Ylast := Y1+(S*Yloop)
 			Click, %Xlast%, %Ylast%, Left
 			sleep 7
