@@ -8,3 +8,5 @@ version 0.1 has configureability of how the quilt is made via clicking the top l
 spacing defines the area in a square of the repeated pattern(a patchwork). A repeated pattern is hard coded to be 12 by 12 of that pattern making a patch. QuiltComplexity determins the number of clicks that make a repeated pattern. Every repeated pattern will have the same number of clicks.
 
 The number of patchworks created is determined by what can fit inside of the zone you clicked on.
+
+Check out this awesome sample quilt! https://i.imgur.com/mfS01cP.png
