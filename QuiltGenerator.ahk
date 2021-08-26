@@ -7,6 +7,7 @@ CoordMode, Mouse, Screen
 
 MsgBox, "For now, open paint editor. esc to exit or wait to completion."
 
+clicksdisable := 1
 ToolTip, click somewhere
 KeyWait, LButton, D
 MouseGetPos, topleftx, toplefty
@@ -16,6 +17,7 @@ KeyWait, LButton, D
 MouseGetPos, botrightx, botrighty
 KeyWait, LButton, U
 ToolTip
+clicksdisable := 0
 MsgBox, X1,Y1: %topleftx%,%toplefty% `nX2,Y2: %botrightx%,%botrighty% `nWill paint quilt %QuiltComplexity% times. Estimated time is %QuiltComplexity%*patchworks*2.5 seconds.
 
 RightClickArray(X1,Y1,X2,Y2,S) {
@@ -60,6 +62,21 @@ Loop %QuiltComplexity%
 			break
 	}
 }
+
+;=========================== End of intended autoexecute ===================================
+
+clicksdisable := 0
+
+#if clicksdisable
+
+LButton::
+return
+
+RButton::
+return
+
+#if
+
 
 MsgBox, Script complete
 ExitApp
