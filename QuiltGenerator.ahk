@@ -5,6 +5,13 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 CoordMode, Mouse, Screen
 
+;================================================= global variables =======================================
+
+QuiltComplexity :=	25
+spacing :=		10
+
+;================================================= auto execute ===========================================
+
 MsgBox, "For now, open paint editor. esc to exit or wait to completion."
 
 clicksdisable := 1
@@ -41,9 +48,6 @@ RightClickArray(X1,Y1,X2,Y2,S) {
 	}
 }
 
-QuiltComplexity :=		25
-spacing :=				10
-
 Loop %QuiltComplexity%
 {
 	Loop 
@@ -63,6 +67,9 @@ Loop %QuiltComplexity%
 	}
 }
 
+MsgBox, Script complete
+ExitApp
+
 ;=========================== End of intended autoexecute ===================================
 
 clicksdisable := 0
@@ -76,10 +83,6 @@ RButton::
 return
 
 #if
-
-
-MsgBox, Script complete
-ExitApp
 
 Esc::ExitApp
 return
